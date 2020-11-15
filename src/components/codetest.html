@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1 id="demo">
+
+        </h1>
+        <script>
+            const user = {
+                id: 101,
+                email: 'jack@dev.com',
+                personalInfo: {
+                    name: 'Jack',
+                    address: {
+                        line1: 'westwish st',
+                        line2: 'washmasher',
+                        city: 'wallas',
+                        state: 'WX'
+                    }
+                }
+            }
+            document.getElementById("demo").innerHTML = user.personalInfo
+        </script>
+    </body>
+</html>
