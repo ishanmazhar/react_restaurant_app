@@ -10,11 +10,16 @@ class DishDetail extends Component {
             selectedDish: null
         }
     }
-
+    componentDidMount() {
+        console.log("DishDetailComponent's ComponentDidMount invoked!");
+    }
+    componentDidUpdate() {
+        console.log("DishDetailComponent's ComponentDidUpdate invoked!");
+    }
     renderDish(dish) {
         if (dish != null) {
             return(
-                <div > 
+                <div className="col-12 col-md-5 m-1"> 
                 <Card>
                     <CardImg width="100%" src={dish.image} alt={dish.name} />
                     <CardBody>
@@ -33,22 +38,19 @@ class DishDetail extends Component {
     }
     renderComments(dish) {
         if (dish != null) {
-            const dishComment = dish.comments.map((comment) => {
-                return (
-                    <div key={comment.id}>
-                        <h4>Comments</h4>
-                        <ul className="list-unstyled">
-                            <li>{comment.comment}</li>
-                            <li> -- {comment.author}, {comment.date}</li>     
-                        </ul>                  
-                    </div>
-                );
-            });
-            return(
-                
-                <div className="row">
-                    
-                    {dishComment}
+            return(      
+                <div className="col-12 col-md-5 m-1">  
+                    <h4>Comments</h4> 
+                    {dish.comments.map((comment) => {
+                        return (
+                            <div key={comment.id}>
+                                <ul className="list-unstyled">
+                                    <li>{comment.comment}</li>
+                                    <li> -- {comment.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}</li>     
+                                </ul>                  
+                            </div>
+                        );
+                    })}
                 </div>
             )
         }
@@ -58,20 +60,16 @@ class DishDetail extends Component {
             )
         }
     }
-    
 
     render() {
-
+        console.log("DishDetailComponent's Render invoked!");
         return (
-            <div className="row">
-                <div className="col-12 col-md-5 m-3">
+            <div className="container">
+                <div className="row">
                     {this.renderDish(this.props.dish)} 
-                </div>
-                <div className="col-12 col-md-5 m-3">
                     {this.renderComments(this.props.dish)} 
                 </div>
             </div>
-
         );
     }
 }
