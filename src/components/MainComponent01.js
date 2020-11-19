@@ -6,6 +6,8 @@ import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import { DISHES } from '../shared/dishes';
 
+
+
 class Main extends Component {
 
   constructor(props) {
