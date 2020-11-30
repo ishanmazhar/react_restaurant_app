@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom'; 
+
     function RenderDish({dish}) {
         if (dish != null) {
             return(
@@ -21,6 +22,7 @@ import { Link } from 'react-router-dom';
             )
         }
     }
+    
     function RenderComments({comments}) {
         if (comments != null) {
             return(      
